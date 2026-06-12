@@ -519,7 +519,7 @@
     var btn  = document.getElementById('send-btn');
     btn.textContent = 'Sending...'; btn.disabled = true;
 
-    supa('responses', {
+    supa('responses?on_conflict=party_id', {
       method: 'POST',
       headers: { 'Prefer': 'resolution=merge-duplicates,return=representation' },
       body: JSON.stringify({
