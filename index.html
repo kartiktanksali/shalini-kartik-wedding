@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shalini &amp; Kartik · 24 September 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#0E1710; --forest-deep:#0A1109;
+    --paper:#F2E9D5; --paper-2:#ECDFC4;
+    --ink:#2B2620; --ink-soft:#5C5142;
+    --green:#33513A; --green-2:#46663F;
+    --gold:#A9762B; --gold-lit:#D7A24B; --gold-soft:#E8C57E;
+    --sage:#9FB295;
+    --line:rgba(43,38,32,.16);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:18px 26px;transition:.4s}
+  nav.scrolled{background:rgba(242,233,213,.92);box-shadow:0 1px 0 var(--line);padding:11px 26px;backdrop-filter:blur(6px)}
+  nav.scrolled .monogram,nav.scrolled .nav-links a{color:var(--ink)}
+  .monogram{font-family:"Fraunces",serif;font-weight:400;font-size:1.05rem;letter-spacing:.04em;color:#fff;transition:color .4s}
+  .monogram em{font-style:italic;color:var(--gold-soft);padding:0 .12em}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;transition:color .25s}
+  nav.scrolled .nav-links a{color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--gold-lit)!important}
+  .btn-rsvp{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);background:var(--gold-lit);padding:9px 18px;border-radius:999px;border:0;cursor:pointer;font-weight:600;font-family:"Hanken Grotesk";transition:.25s}
+  .btn-rsvp:hover{background:var(--gold-soft);transform:translateY(-1px)}
+  @media(max-width:680px){.nav-links a.t{display:none}}
+
+  /* HERO */
+  header.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 26px 70px;position:relative;color:#F1E9D7;
+    background:linear-gradient(rgba(10,17,9,.62),rgba(10,17,9,.38) 40%,rgba(10,17,9,.72)),
+      radial-gradient(60% 45% at 76% 12%,rgba(232,197,126,.18),transparent 60%),
+      url("assets/sketches/hero-angkor.jpg");
+    background-size:cover,cover,contain;background-position:center;background-repeat:no-repeat;background-blend-mode:normal,screen,normal}
+  .kicker{font-size:.78rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#EFC96E;margin-bottom:28px;text-shadow:0 1px 4px rgba(0,0,0,.65),0 0 26px rgba(0,0,0,.55);opacity:0;animation:rise .9s .1s forwards}
+  .names{font-family:"Fraunces",serif;font-weight:300;line-height:.92;font-size:clamp(3rem,11vw,7.6rem);letter-spacing:-.01em;text-shadow:0 2px 8px rgba(0,0,0,.95),0 0 30px rgba(0,0,0,.8)}
+  .names span{display:block;opacity:0}
+  .names .n1{animation:rise 1s .25s forwards}
+  .names .amp{font-size:.42em;font-style:italic;color:var(--gold-soft);margin:.04em 0;animation:rise 1s .42s forwards}
+  .names .n2{animation:rise 1s .58s forwards}
+  .hero-meta{margin-top:34px;display:flex;flex-direction:column;gap:9px;opacity:0;animation:rise 1s .82s forwards}
+  .hero-date{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.05rem,2.6vw,1.45rem);color:#E8C57E;text-shadow:0 1px 6px rgba(0,0,0,.95),0 0 24px rgba(0,0,0,.8)}
+  .hero-venue{font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;color:#F2E9D5;font-weight:500;text-shadow:0 0 2px rgba(0,0,0,1),0 2px 8px rgba(0,0,0,1),0 0 30px rgba(0,0,0,.95),0 0 60px rgba(0,0,0,.8)}
+  .rule{width:1px;height:50px;background:linear-gradient(var(--gold-soft),transparent);margin:28px auto 0;opacity:0;animation:rise 1s 1s forwards}
+  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,233,215,.7);opacity:0;animation:fade 1.4s 1.5s forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes fade{to{opacity:.7}}
+
+  /* SECTION */
+  section{position:relative;padding:clamp(64px,10vw,118px) 0}
+  .eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  h2.disp{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
+  h2.disp em{font-style:italic;color:var(--green-2)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+  .reveal.in{opacity:1;transform:none}
+  .divider{display:flex;justify-content:center;padding:6px 0 0}
+  .divider svg{width:140px;opacity:.5}
+
+  /* STORY */
+  .story-head{max-width:720px}
+  .moment{position:relative;max-width:680px;margin:0 auto;padding:46px 0}
+  .moment .bg{position:absolute;top:50%;transform:translateY(-50%);width:min(400px,58%);mix-blend-mode:multiply;opacity:.32;pointer-events:none;
+    -webkit-mask-image:radial-gradient(closest-side,#000 50%,transparent 100%);mask-image:radial-gradient(closest-side,#000 50%,transparent 100%)}
+  .moment.left .bg{left:-10%}
+  .moment.right .bg{right:-10%}
+  .moment p{position:relative;font-size:1.08rem;font-weight:500;color:#191410;max-width:50ch;text-shadow:0 0 20px var(--paper),0 0 20px var(--paper),0 0 8px var(--paper)}
+  .moment.right p{margin-left:auto;text-align:right}
+  .moment p .lead{font-family:"Fraunces",serif;font-style:italic;font-weight:500;color:var(--green-2)}
+  .moment .tag{position:relative;display:inline-block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .mini-arc{display:block;margin:8px 0 2px}
+  @media(max-width:680px){.moment .bg{width:78%;opacity:.4}.moment.right p{text-align:left;margin-left:0}}
+
+  /* DAYS */
+  .days{background:var(--paper-2)}
+  .day-block{margin-top:46px}
+  .day-tag{font-family:"Fraunces",serif;font-style:italic;font-size:1.5rem;color:var(--green-2)}
+  .day-tag b{font-style:normal;font-weight:500;color:var(--ink);display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-family:"Hanken Grotesk";margin-top:4px}
+  .timeline{margin-top:26px;border-left:1px solid var(--line);padding-left:0}
+  .t-item{position:relative;padding:0 0 30px 30px}
+  .t-item::before{content:"";position:absolute;left:-5px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--gold-lit);box-shadow:0 0 0 4px var(--paper-2)}
+  .t-item .time{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.05rem}
+  .t-item h4{font-family:"Fraunces",serif;font-weight:500;font-size:1.28rem;margin:2px 0 6px}
+  .t-item p{color:var(--ink-soft);font-size:.97rem;max-width:56ch}
+  .gloss{margin-top:8px;font-size:.9rem;color:var(--green-2);font-style:italic;border-left:2px solid var(--sage);padding-left:12px}
+  .day-head-note{margin-top:8px;color:var(--ink-soft);font-style:italic;font-family:"Fraunces",serif}
+  a.maplink{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line);font-weight:400}
+  a.maplink:hover{color:var(--green-2)}
+
+  /* TRAVEL */
+  .addr{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);color:var(--ink);margin-top:10px}
+  .addr-sub{color:var(--ink-soft);margin-top:8px;max-width:54ch;font-size:.98rem}
+  .travel-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:46px;margin-top:48px;align-items:start}
+  @media(max-width:860px){.travel-grid{grid-template-columns:1fr;gap:36px}}
+  .map-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -45px rgba(0,0,0,.55)}
+  .map-card img{display:block;width:100%}
+  .map-cap{padding:12px 16px;font-size:.8rem;letter-spacing:.05em;color:var(--ink-soft);background:var(--paper)}
+  .legend h3,.parking h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-bottom:14px}
+  .legend ol{list-style:none;counter-reset:l}
+  .legend li{counter-increment:l;position:relative;padding:9px 0 9px 38px;border-bottom:1px dashed var(--line);font-size:.95rem;color:var(--ink-soft)}
+  .legend li::before{content:counter(l);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--green);color:var(--paper);font-size:.78rem;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif}
+  .legend li b{color:var(--ink);font-weight:500}
+  .parking{margin-top:34px}
+  .parking p{color:var(--ink-soft);font-size:.97rem;max-width:60ch}
+  .parking .pill{display:inline-block;margin:10px 8px 0 0;padding:6px 13px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:var(--ink)}
+
+  /* RSVP + FOOTER (dark) */
+  .rsvp{background:var(--forest);color:#F1E9D7;text-align:center}
+  .rsvp h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,6vw,3.6rem);line-height:1.05}
+  .rsvp h2 em{font-style:italic;color:var(--gold-soft)}
+  .rsvp p{color:rgba(241,233,215,.8);max-width:44ch;margin:18px auto 34px}
+  .btn-big{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--forest);background:var(--gold-lit);padding:17px 42px;border-radius:999px;border:0;cursor:pointer;font-family:"Hanken Grotesk";box-shadow:0 16px 44px -18px rgba(215,162,75,.8);transition:.25s}
+  .btn-big:hover{background:var(--gold-soft);transform:translateY(-2px)}
+  footer{background:var(--forest-deep);color:rgba(241,233,215,.75);text-align:center;padding:44px 0}
+  footer .monogram{font-size:1.4rem}
+  footer p{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-top:12px}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+  /* ---- STAY & EXPLORE ---- */
+  #stay{background:var(--paper-2)}
+  #stay .lede{color:var(--ink-soft);margin-top:12px;max-width:58ch;font-size:1rem}
+  .stay-sub{font-family:"Fraunces",serif;font-style:italic;font-size:1.35rem;color:var(--green-2);margin:54px 0 24px}
+  .hotels{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .hotel{position:relative;border:1px solid var(--line);border-radius:14px;background:#fff;padding:26px 22px 22px;box-shadow:0 30px 70px -52px rgba(0,0,0,.55);display:flex;flex-direction:column}
+  .hotel h4{font-family:"Fraunces",serif;font-weight:500;font-size:1.2rem;color:var(--ink);line-height:1.18}
+  .hotel .meta{font-size:.82rem;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+  .hotel .stars{color:var(--gold-lit);letter-spacing:.05em}
+  .hotel p{font-size:.92rem;color:var(--ink);margin-top:13px;flex:1;line-height:1.62;font-weight:300}
+  .hotel .badge{display:inline-block;align-self:flex-start;margin-top:14px;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .hotel a{margin-top:16px;color:var(--gold);text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.02em}
+  .hotel a:hover{color:var(--gold-lit)}
+  .rates-note{font-size:.86rem;color:var(--ink-soft);margin-top:20px;font-style:italic;max-width:60ch}
+  .todo{margin-top:6px;border-top:1px solid var(--line)}
+  .todo .row{display:flex;gap:22px;align-items:baseline;padding:21px 0;border-bottom:1px solid var(--line)}
+  .todo .time{flex:0 0 80px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green-2);font-weight:600}
+  .todo .body h4{font-family:"Fraunces",serif;font-weight:500;font-size:1.14rem;color:var(--ink);margin-bottom:5px}
+  .todo .body p{color:var(--ink-soft);font-size:.95rem;line-height:1.6}
+  .todo .body a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line);font-size:.85rem;white-space:nowrap}
+  @media(max-width:820px){.hotels{grid-template-columns:1fr}.todo .row{flex-direction:column;gap:6px}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav">
+  <span class="monogram">Shalini <em>&amp;</em> Kartik</span>
+  <div class="nav-links">
+    <a class="t" href="#story">Our Story</a>
+    <a class="t" href="#travel">Travel</a>
+    <a class="t" href="#stay">Stay</a>
+    <button class="btn-rsvp" onclick="location.href='rsvp.html'+location.search">RSVP</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <h1 class="names">
+    <span class="n1">Shalini</span>
+    <span class="amp">&amp;</span>
+    <span class="n2">Kartik</span>
+  </h1>
+  <div class="hero-meta">
+    <span class="hero-date">the twenty-fourth of September, twenty twenty-six</span>
+    <span class="hero-venue">The Sequoia Retreat Center · Ben Lomond, California</span>
+  </div>
+  <div class="rule"></div>
+  <span class="scroll-cue">scroll</span>
+</header>
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap">
+    <div class="story-head reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="disp">Eight thousand miles, fifteen time zones, and <em>one</em> very persistent pull across the Pacific.</h2>
+    </div>
+
+    <div class="moment left reveal">
+      <img class="bg" src="assets/sketches/story-films.jpg" alt="">
+      <span class="tag">How it began</span>
+      <p><span class="lead">Every good Bay Area love story has a little technology in it</span> — and ours is no exception. A well-timed algorithm, a city full of possibility, and two people who probably should have been working instead. (We'll leave the details to your imagination — and to our parents' continued, polite curiosity.)</p>
+    </div>
+
+    <div class="moment right reveal">
+      <img class="bg" src="assets/sketches/story-maui.jpg" alt="">
+      <span class="tag">The distance</span>
+      <p>What started in California soon stretched across an ocean — Singapore on one end, the Bay on the other, with the Pacific and fifteen time zones doing their best to get in the way. There were red-eyes and midnight "good mornings," a spur-of-the-moment escape to Tahoe, and far too many arrivals-gate reunions. It was hard. It was worth it. It was never really in doubt.</p>
+      <svg class="mini-arc" width="180" height="38" viewBox="0 0 180 38" style="margin-left:auto" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 30 C 60 2, 120 2, 172 30" fill="none" stroke="#A9762B" stroke-width="1.2" stroke-dasharray="4 5"/>
+        <circle cx="8" cy="30" r="3" fill="#A9762B"/><circle cx="172" cy="30" r="3" fill="#A9762B"/>
+        <text x="8" y="38" font-family="Hanken Grotesk" font-size="8" fill="#5C5142" letter-spacing="1">SINGAPORE</text>
+        <text x="138" y="38" font-family="Hanken Grotesk" font-size="8" fill="#5C5142" letter-spacing="1">THE BAY</text>
+      </svg>
+    </div>
+
+    <div class="moment left reveal">
+      <img class="bg" src="assets/sketches/story-scuba.jpg" alt="">
+      <span class="tag">The adventures</span>
+      <p>Along the way we watched films under the open sky and learned to breathe underwater off the coast of Bali — where Kartik tried, on at least four separate occasions, to gracefully back out, while Shalini took to it like she was born with fins. We've also weathered a few real scares that reminded us, very clearly, exactly who we want beside us when things get hard. What a journey it's been.</p>
+    </div>
+
+    <div class="moment right reveal">
+      <img class="bg" src="assets/sketches/story-redwood.jpg" alt="">
+      <span class="tag">And now</span>
+      <p>This September, beneath the redwoods at Ben Lomond, we're closing the last little distance for good — and we'd love for you to be there to see it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL -->
+<section id="travel">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Getting There</p>
+      <h2 class="disp">Up the mountain.</h2>
+      <p class="addr">The Sequoia Retreat Center &middot; 11445 Alba Road, Ben Lomond, CA 95005</p>
+      <p class="addr-sub">About 45 minutes from San José — up Highway 9 through Ben Lomond, then 1.6 winding miles up Alba Road. (Yes, there's cell service at the top.) <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Sequoia+Retreat+Center+11445+Alba+Road+Ben+Lomond+CA" target="_blank" rel="noopener">Open in Maps &rarr;</a></p>
+    </div>
+
+    <div class="travel-grid">
+      <div class="map-card reveal">
+        <img src="assets/sketches/venue-map.jpg" alt="Site map of The Sequoia Retreat Center">
+        <div class="map-cap">The Sequoia — site map &amp; shuttle stops</div>
+      </div>
+      <div class="reveal">
+        <div class="legend">
+          <h3>Where things happen</h3>
+          <ol>
+            <li><b>Las Alas Lodge</b> &amp; Pixie's Garden — appetizers, dancing, ceremony &amp; reception dinner</li>
+            <li><b>Peace Park</b> — the ceremony</li>
+            <li><b>Get-Ready Cabin</b> — ZaZen</li>
+            <li><b>Get-Ready Cabin</b> — Alba Vista</li>
+            <li><b>Redwood Grove</b></li>
+            <li><b>Casa de Sequoia</b></li>
+          </ol>
+        </div>
+        <div class="parking">
+          <h3>Parking &amp; the shuttle</h3>
+          <p>Parking on the property is limited and the lots are spread out, so a shuttle runs between them. We'd genuinely love it if you carpooled up the mountain — tell us in your RSVP whether you're driving, and we'll help match riders to spare seats.</p>
+          <span class="pill">~15 spots by the lodge</span>
+          <span class="pill">20–25 car lot</span>
+          <span class="pill">5–6 spots up top</span>
+          <span class="pill">shuttle between lots</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAY & EXPLORE -->
+<section id="stay">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Stay &amp; Explore</p>
+      <h2 class="disp">Make a weekend of it.</h2>
+      <p class="lede">Ben Lomond and neighboring Felton are tucked deep in the redwoods, with a handful of welcoming places to stay just minutes from the venue — and plenty worth doing if you come up early or linger a day.</p>
+    </div>
+
+    <p class="stay-sub reveal">A place to rest your head</p>
+    <div class="hotels">
+      <div class="hotel reveal">
+        <h4>Brookdale Lodge</h4>
+        <p class="meta"><span class="stars">&#9733;</span> 4.3 (479) &middot; 3-star &middot; 0.7 mi from the venue</p>
+        <p>A storied 1920s redwood lodge with newly remodeled rooms, private balconies among the trees, and a 1950s-style cafe and bar on site. Pet-friendly. The closest bed to the wedding.</p>
+        <span class="badge">Closest &middot; ~3 min</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Brookdale+Lodge+Brookdale+CA" target="_blank" rel="noopener">Reviews &amp; rates &rarr;</a>
+      </div>
+      <div class="hotel reveal">
+        <h4>Quality Inn &amp; Suites</h4>
+        <p class="meta"><span class="stars">&#9733;</span> 3.9 (292) &middot; 2-star &middot; 1.3 mi from the venue</p>
+        <p>The easy, no-fuss option, right in Ben Lomond. Comfortable rooms, an outdoor pool, free breakfast and Wi-Fi — a short hop down Highway 9 from the Sequoia.</p>
+        <span class="badge">Simple &amp; close</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Quality+Inn+Suites+Santa+Cruz+Mountains+Ben+Lomond+CA" target="_blank" rel="noopener">Reviews &amp; rates &rarr;</a>
+      </div>
+      <div class="hotel reveal">
+        <h4>Masood's Lodge</h4>
+        <p class="meta"><span class="stars">&#9733;</span> 4.2 (122) &middot; 3-star &middot; 2 mi from the venue</p>
+        <p>Cabins and motel rooms tucked into the redwoods a few minutes down the road — a quieter, woodsy stay for anyone who wants to wake up surrounded by trees.</p>
+        <span class="badge">Woodsy cabins</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Masoods+Lodge+Ben+Lomond+CA" target="_blank" rel="noopener">Reviews &amp; rates &rarr;</a>
+      </div>
+    </div>
+    <p class="rates-note reveal">We've left prices off — we're a year out and rates swing a lot by season, so tap a name to check your dates. Prefer a full-service hotel? The Hilton and Four Points by Sheraton in Scotts Valley are about 15&ndash;20 minutes away.</p>
+
+    <p class="stay-sub reveal">While you're here</p>
+    <div class="todo">
+      <div class="row reveal">
+        <div class="time">~10 min</div>
+        <div class="body">
+          <h4>Henry Cowell Redwoods State Park</h4>
+          <p>Old-growth giants and a flat, easy Redwood Loop — the quintessential Santa Cruz Mountains walk, just down the hill in Felton. <a href="https://www.google.com/maps/search/?api=1&query=Henry+Cowell+Redwoods+State+Park" target="_blank" rel="noopener">Map &rarr;</a></p>
+        </div>
+      </div>
+      <div class="row reveal">
+        <div class="time">~8 min</div>
+        <div class="body">
+          <h4>Roaring Camp &amp; the Felton Covered Bridge</h4>
+          <p>A 19th-century steam railroad that chuffs through the redwoods, next to one of the tallest covered bridges in the country. <a href="https://www.google.com/maps/search/?api=1&query=Roaring+Camp+Railroads+Felton+CA" target="_blank" rel="noopener">Map &rarr;</a></p>
+        </div>
+      </div>
+      <div class="row reveal">
+        <div class="time">~20 min</div>
+        <div class="body">
+          <h4>Santa Cruz Beach Boardwalk &amp; Wharf</h4>
+          <p>The classic seaside boardwalk, the old wharf, and the cliffs along West Cliff Drive — sunshine and salt air, twenty minutes down the mountain. <a href="https://www.google.com/maps/search/?api=1&query=Santa+Cruz+Beach+Boardwalk" target="_blank" rel="noopener">Map &rarr;</a></p>
+        </div>
+      </div>
+      <div class="row reveal">
+        <div class="time">~25 min</div>
+        <div class="body">
+          <h4>The Mystery Spot</h4>
+          <p>A gloriously kitschy &ldquo;gravitational anomaly&rdquo; in the hills above Santa Cruz, fooling visitors since 1939. Sillier than the redwoods, and a lot of fun. <a href="https://www.google.com/maps/search/?api=1&query=Mystery+Spot+Santa+Cruz" target="_blank" rel="noopener">Map &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp" class="rsvp">
+  <div class="wrap reveal">
+    <h2>Will you <em>be there?</em></h2>
+    <p>Find your name, tell us who's coming and which events you'll join, and let us know if you're driving up — we're pooling rides.</p>
+    <button class="btn-big" onclick="location.href='rsvp.html'+location.search">Find your invitation</button>
+  </div>
+</section>
+
+<footer>
+  <span class="monogram">S <em>&amp;</em> K</span>
+  <p>24 &middot; 09 &middot; 2026 — Ben Lomond, California</p>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.16});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
