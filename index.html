@@ -73,8 +73,8 @@
   /* STORY */
   .story-head{max-width:1060px}
   .moment{position:relative;max-width:1060px;margin:0 auto;padding:46px 0}
-  .moment .bg{position:absolute;top:50%;transform:translateY(-50%);width:min(400px,58%);mix-blend-mode:multiply;opacity:.32;pointer-events:none;
-    -webkit-mask-image:radial-gradient(closest-side,#000 50%,transparent 100%);mask-image:radial-gradient(closest-side,#000 50%,transparent 100%)}
+  .moment .bg{position:absolute;top:70%;transform:translateY(-50%);width:min(420px,75%);mix-blend-mode:multiply;opacity:0.60;pointer-events:none;
+    -webkit-mask-image:radial-gradient(closest-side,#000 75%,transparent 100%);mask-image:radial-gradient(closest-side,#000 75%,transparent 100%)}
   .moment.left .bg{left:-10%}
   .moment.right .bg{right:-10%}
   .moment p{position:relative;font-size:1.08rem;font-weight:500;color:#191410;max-width:50ch;text-shadow:0 0 20px var(--paper),0 0 20px var(--paper),0 0 8px var(--paper)}
@@ -83,7 +83,7 @@
   .moment .tag{position:relative;display:block;font-size:0.98rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700}
   .moment.right .tag{text-align:right}
   .mini-arc{display:block;margin:8px 0 2px}
-  @media(max-width:680px){.moment .bg{width:78%;opacity:.4}.moment.right p{text-align:left;margin-left:0}}
+  @media(max-width:680px){.moment .bg{width:90%;opacity:.70;-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent 100%);mask-image:radial-gradient(closest-side,#000 70%,transparent 100%)}.moment.right p{text-align:left;margin-left:0}}
 
   /* DAYS */
   .days{background:var(--paper-2)}
@@ -193,14 +193,16 @@
 
     <div class="moment left reveal">
       <img class="bg" src="assets/sketches/story-films.jpg" alt="">
-      <span class="tag">How it began</span>
-      <p><span class="lead">Every good Bay Area love story has a little technology in it</span> — and ours is no exception. A well-timed algorithm, a city full of possibility, and two people who probably should have been working instead. (We'll leave the details to your imagination — and to our parents' continued, polite curiosity.)</p>
+      <span class="tag">Blame the Algorithm</span>
+      <p>Some things in life are fate. Some things are chemistry. Some things are the result of a very <span class="lead">smug piece of software</span> that has since been insufferably correct.</p>
     </div>
 
     <div class="moment right reveal">
       <img class="bg" src="assets/sketches/story-maui.jpg" alt="">
-      <span class="tag">The distance</span>
-      <p>What started in California soon stretched across an ocean — Singapore on one end, the Bay on the other, with the Pacific and fifteen time zones doing their best to get in the way. There were red-eyes and midnight "good mornings," a spur-of-the-moment escape to Tahoe, and far too many arrivals-gate reunions. It was hard. It was worth it. It was never really in doubt.</p>
+      <span class="tag">In Transit</span>
+      <p>
+        Changi Airport has four terminals, a butterfly garden, a 40-metre waterfall, and a hotel where you can sleep between connections. We know this because we spent a lot of time there. Too much time, probably. Just enough time, it turns out. Some of our best conversations happened in Terminal 3 at 6am waiting for a gate to open. We'd go back. We'd do all of it again.
+      </p>
       <svg class="mini-arc" width="180" height="38" viewBox="0 0 180 38" style="margin-left:auto" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 30 C 60 2, 120 2, 172 30" fill="none" stroke="#A9762B" stroke-width="1.2" stroke-dasharray="4 5"/>
         <circle cx="8" cy="30" r="3" fill="#A9762B"/><circle cx="172" cy="30" r="3" fill="#A9762B"/>
@@ -211,8 +213,8 @@
 
     <div class="moment left reveal">
       <img class="bg" src="assets/sketches/story-scuba.jpg" alt="">
-      <span class="tag">The adventures</span>
-      <p>Along the way we watched films under the open sky and learned to breathe underwater off the coast of Bali — where Kartik tried, on at least four separate occasions, to gracefully back out, while Shalini took to it like she was born with fins. We've also weathered a few real scares that reminded us, very clearly, exactly who we want beside us when things get hard. What a journey it's been.</p>
+      <span class="tag">Off Script</span>
+      <p>Open air cinema, 18 metres underwater in Bali, a Royal Enfield through roads that had no business being that beautiful, a few national parks just to finish us off. Somewhere in the middle, life threw something harder. We don't talk about that part much — only to say that you find out who someone is pretty quickly when the plot goes off script. We liked what we found.</p>
     </div>
 
     <div class="moment right reveal">
