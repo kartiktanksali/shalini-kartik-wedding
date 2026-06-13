@@ -26,12 +26,12 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:18px 26px;transition:.4s}
-  nav.scrolled{background:rgba(242,233,213,.92);box-shadow:0 1px 0 var(--line);padding:11px 26px;backdrop-filter:blur(6px)}
-  nav.scrolled .monogram,nav.scrolled .nav-links a{color:var(--ink)}
+  nav.scrolled{background:rgba(242,233,213,.92);box-shadow:0 1px 0 var(--line);padding:11px 26px;backdrop-filter:blur(6px);text-shadow:none}
+  nav.scrolled .monogram,nav.scrolled .nav-links a{color:#000000;text-shadow:none;font-weight:700}
   .monogram{font-family:"Fraunces",serif;font-weight:400;font-size:1.05rem;letter-spacing:.04em;color:#fff;transition:color .4s}
   .monogram em{font-style:italic;color:var(--gold-soft);padding:0 .12em}
   .nav-links{display:flex;align-items:center;gap:26px}
-  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;transition:color .25s}
+  .nav-links a{color:#FFFFFF;text-decoration:none;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;transition:color .25s;text-shadow:0 1px 4px rgba(0,0,0,.8);font-weight:600}
   nav.scrolled .nav-links a{color:var(--ink-soft)}
   .nav-links a:hover{color:var(--gold-lit)!important}
   .btn-rsvp{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);background:var(--gold-lit);padding:9px 18px;border-radius:999px;border:0;cursor:pointer;font-weight:600;font-family:"Hanken Grotesk";transition:.25s}
@@ -39,11 +39,13 @@
   @media(max-width:680px){.nav-links a.t{display:none}}
 
   /* HERO */
-  header.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 26px 70px;position:relative;color:#F1E9D7;
+  header.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:450px 26px 70px;position:relative;color:#F1E9D7;
     background:linear-gradient(rgba(10,17,9,.62),rgba(10,17,9,.38) 40%,rgba(10,17,9,.72)),
       radial-gradient(60% 45% at 76% 12%,rgba(232,197,126,.18),transparent 60%),
       url("assets/sketches/hero-angkor.jpg");
-    background-size:cover,cover,contain;background-position:center;background-repeat:no-repeat;background-blend-mode:normal,screen,normal}
+      background-size:cover,cover,cover;
+      background-position:center,center,center;
+      background-repeat:no-repeat;background-blend-mode:normal,screen,normal}
   .kicker{font-size:.78rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#EFC96E;margin-bottom:28px;text-shadow:0 1px 4px rgba(0,0,0,.65),0 0 26px rgba(0,0,0,.55);opacity:0;animation:rise .9s .1s forwards}
   .names{font-family:"Fraunces",serif;font-weight:300;line-height:.92;font-size:clamp(3rem,11vw,7.6rem);letter-spacing:-.01em;text-shadow:0 2px 8px rgba(0,0,0,.95),0 0 30px rgba(0,0,0,.8)}
   .names span{display:block;opacity:0}
@@ -51,8 +53,8 @@
   .names .amp{font-size:.42em;font-style:italic;color:var(--gold-soft);margin:.04em 0;animation:rise 1s .42s forwards}
   .names .n2{animation:rise 1s .58s forwards}
   .hero-meta{margin-top:34px;display:flex;flex-direction:column;gap:9px;opacity:0;animation:rise 1s .82s forwards}
-  .hero-date{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.05rem,2.6vw,1.45rem);color:#E8C57E;text-shadow:0 1px 6px rgba(0,0,0,.95),0 0 24px rgba(0,0,0,.8)}
-  .hero-venue{font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;color:#F2E9D5;font-weight:500;text-shadow:0 0 2px rgba(0,0,0,1),0 2px 8px rgba(0,0,0,1),0 0 30px rgba(0,0,0,.95),0 0 60px rgba(0,0,0,.8)}
+  .hero-date{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);font-weight:500;color:#E8C57E;text-shadow:0 1px 6px rgba(0,0,0,.95),0 0 24px rgba(0,0,0,.8)}
+  .hero-venue{font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;color:#FFFFFF;font-weight:600;text-shadow:0 0 2px rgba(0,0,0,1),0 2px 8px rgba(0,0,0,1),0 0 30px rgba(0,0,0,.95),0 0 60px rgba(0,0,0,.8)}
   .rule{width:1px;height:50px;background:linear-gradient(var(--gold-soft),transparent);margin:28px auto 0;opacity:0;animation:rise 1s 1s forwards}
   .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,233,215,.7);opacity:0;animation:fade 1.4s 1.5s forwards}
   @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -60,7 +62,7 @@
 
   /* SECTION */
   section{position:relative;padding:clamp(64px,10vw,118px) 0}
-  .eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .eyebrow{font-size:1.25rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
   h2.disp{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(2rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
   h2.disp em{font-style:italic;color:var(--green-2)}
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
@@ -69,8 +71,8 @@
   .divider svg{width:140px;opacity:.5}
 
   /* STORY */
-  .story-head{max-width:720px}
-  .moment{position:relative;max-width:680px;margin:0 auto;padding:46px 0}
+  .story-head{max-width:1060px}
+  .moment{position:relative;max-width:1060px;margin:0 auto;padding:46px 0}
   .moment .bg{position:absolute;top:50%;transform:translateY(-50%);width:min(400px,58%);mix-blend-mode:multiply;opacity:.32;pointer-events:none;
     -webkit-mask-image:radial-gradient(closest-side,#000 50%,transparent 100%);mask-image:radial-gradient(closest-side,#000 50%,transparent 100%)}
   .moment.left .bg{left:-10%}
@@ -78,7 +80,8 @@
   .moment p{position:relative;font-size:1.08rem;font-weight:500;color:#191410;max-width:50ch;text-shadow:0 0 20px var(--paper),0 0 20px var(--paper),0 0 8px var(--paper)}
   .moment.right p{margin-left:auto;text-align:right}
   .moment p .lead{font-family:"Fraunces",serif;font-style:italic;font-weight:500;color:var(--green-2)}
-  .moment .tag{position:relative;display:inline-block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .moment .tag{position:relative;display:block;font-size:0.98rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700}
+  .moment.right .tag{text-align:right}
   .mini-arc{display:block;margin:8px 0 2px}
   @media(max-width:680px){.moment .bg{width:78%;opacity:.4}.moment.right p{text-align:left;margin-left:0}}
 
@@ -172,7 +175,7 @@
     <span class="n2">Kartik</span>
   </h1>
   <div class="hero-meta">
-    <span class="hero-date">the twenty-fourth of September, twenty twenty-six</span>
+    <span class="hero-date">09.24.2026</span>
     <span class="hero-venue">The Sequoia Retreat Center · Ben Lomond, California</span>
   </div>
   <div class="rule"></div>
@@ -184,7 +187,8 @@
   <div class="wrap">
     <div class="story-head reveal">
       <p class="eyebrow">Our Story</p>
-      <h2 class="disp">Eight thousand miles, fifteen time zones, and <em>one</em> very persistent pull across the Pacific.</h2>
+      <h2 class="disp">Turns out the best way to resolve a heated political debate is to marry the other side. <br>
+        <em>We are choosing to see this as diplomacy</em>.</h2>
     </div>
 
     <div class="moment left reveal">
