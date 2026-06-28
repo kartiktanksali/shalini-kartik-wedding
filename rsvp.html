@@ -532,6 +532,7 @@
       headers: { 'Prefer': 'resolution=merge-duplicates,return=representation' },
       body: JSON.stringify({
         party_id:        party.id,
+        household:       party.household,
         attending:       accepting,
         guests:          guests,
         note:            note || null,
